@@ -15,7 +15,9 @@ public class CircularShift {
 			tempString = new LinkedList<>(Arrays.asList(lines.getLine(i).split(" ")));
 			for(int k=0 ; k<tempString.size()-1 ; k++) {
 				tempString.addFirst(tempString.removeLast());
-				lines.addLine(arrToString(tempString));
+				if(!lines.isTaboo(tempString.getFirst())) {
+					lines.addLine(arrToString(tempString));
+				}
 			}
 		}
 	}

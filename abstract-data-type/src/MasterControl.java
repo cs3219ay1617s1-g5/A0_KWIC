@@ -10,9 +10,11 @@ public class MasterControl {
 		LineStorage lines = new LineStorage();
 		Input input = new Input();
 		CircularShift shift = new CircularShift();
+		AlphabeticShift sortLines = new AlphabeticShift();
 		
 		input.parse(sc, lines);
 		shift.rotate(lines);
+		sortLines.sort(lines);
 		print(lines);
 	}
 	

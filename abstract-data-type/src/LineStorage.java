@@ -24,4 +24,13 @@ public class LineStorage {
 	public String getLine(int position) {
 		return lines.get(position);
 	}
+	
+	public boolean isTaboo(String checkTabooWord) {
+		for(String taboo : tabooWords) {
+			if(checkTabooWord.equals(taboo)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
