@@ -7,22 +7,30 @@ public class Remover extends Filter {
 
 	@Override
 	public void execute() {
+		// Read from input pipe while it is still open.
 		while (true) {
 			try {
 				String input = read();
 				
+				// Write to output pipe if line is not ignored.
 				if (!isLineIgnored(input)) {
 					write(input);
 				}
 			} catch (EOFException e) {
-				outputPipe.close();
-				System.out.println("This is Remover end");
-				
+
 				break;
 			}
 		}
+
+		// Job done, close its output pipe.
+		outputPipe.close();
 	}
 	
+	/**
+	 * Checks if the line starts with a non-keyword.
+	 * @param input line to be checked.
+	 * @return true if the line starts with a non-keyword.
+	 */
 	private boolean isLineIgnored(String input) {
 		String[] words = input.split(" ");
 		
