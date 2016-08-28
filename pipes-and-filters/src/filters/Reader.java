@@ -7,8 +7,8 @@ public class Reader extends Filter {
 												   + "Alternatively, enter -1 to end your input:";
 	private Scanner sc;
 	
-	public Reader() {
-		sc = new Scanner(System.in);
+	public void setScanner(Scanner sc) {
+		this.sc = sc;
 	}
 
 	@Override
