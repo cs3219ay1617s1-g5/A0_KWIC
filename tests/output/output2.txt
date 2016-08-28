@@ -1,0 +1,13 @@
+Enter word(s) to ignore as keyword. Enter -1 to skip / end:
+Enter the line(s) that you which to be circularly shifted.
+Alternatively, enter -1 to end your input:
+After Tomorrow The Day
+And Furious Fast
+Day after Tomorrow The
+Fast and Furious
+Furious Fast and
+Man of Steel
+Of Steel Man
+Steel Man of
+The Day after Tomorrow
+Tomorrow The Day after
