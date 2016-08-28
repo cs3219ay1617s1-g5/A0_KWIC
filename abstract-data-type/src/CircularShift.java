@@ -8,12 +8,10 @@ public class CircularShift {
 	}
 	
 	public void rotate(LineStorage lines) {
-		int oriListLength = lines.getLength();	//not sure if using lines.getLength directly 
-												//cause length is always changing 
+		int oriListLength = lines.getLength();
 		
 		for(int i=0 ; i<oriListLength ; i++) {
 			tempString = new LinkedList<>(Arrays.asList(lines.getLine(i).split(" ")));
-			//System.out.println("oriStr: " + tempString);
 
 			for(int k=0 ; k<tempString.size()-1 ; k++) {
 				tempString.addFirst(tempString.removeLast());
