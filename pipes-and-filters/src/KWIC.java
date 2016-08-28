@@ -58,6 +58,8 @@ public class KWIC {
 			String input = sc.next();
 			
 			if (input.equalsIgnoreCase("-1")) {
+				// To clear the trailing nextline.
+				sc.nextLine();
 				break;
 			}
 			
