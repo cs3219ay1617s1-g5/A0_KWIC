@@ -13,11 +13,11 @@ public class CircularShift {
 		
 		for(int i=0 ; i<oriListLength ; i++) {
 			tempString = new LinkedList<>(Arrays.asList(lines.getLine(i).split(" ")));
+			//System.out.println("oriStr: " + tempString);
+
 			for(int k=0 ; k<tempString.size()-1 ; k++) {
 				tempString.addFirst(tempString.removeLast());
-				if(!lines.isTaboo(tempString.getFirst())) {
-					lines.addLine(arrToString(tempString));
-				}
+				lines.addLine(arrToString(tempString));
 			}
 		}
 	}

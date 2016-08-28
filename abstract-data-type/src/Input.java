@@ -19,7 +19,7 @@ public class Input {
 			if(nextTemp.equals("1")) 
 				break;
 			else 
-			lines.addTabooList(nextTemp);
+			lines.addTabooLine(nextTemp);
 		}	
 	}
 }

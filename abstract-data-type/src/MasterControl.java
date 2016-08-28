@@ -10,17 +10,12 @@ public class MasterControl {
 		LineStorage lines = new LineStorage();
 		Input input = new Input();
 		CircularShift shift = new CircularShift();
-		AlphabeticShift sortLines = new AlphabeticShift();
+		AlphabeticShift alphaShift = new AlphabeticShift();
+		Output output = new Output();
 		
 		input.parse(sc, lines);
 		shift.rotate(lines);
-		sortLines.sort(lines);
-		print(lines);
-	}
-	
-	public static void print(LineStorage lines) {
-		for(int i=0 ; i<lines.getLength() ; i++) {
-			System.out.println(lines.getLine(i));
-		}
+		alphaShift.execute(lines);
+		output.print(lines);
 	}
 }

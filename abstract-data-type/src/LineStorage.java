@@ -12,8 +12,12 @@ public class LineStorage {
 	public void addLine(String newString){
 		lines.add(newString);
 	}
+
+	public void removeLine(int position) {
+		lines.remove(position);
+	}
 	
-	public void addTabooList(String newTabooWord){
+	public void addTabooLine(String newTabooWord){
 		tabooWords.add(newTabooWord);
 	}
 	
@@ -24,13 +28,23 @@ public class LineStorage {
 	public String getLine(int position) {
 		return lines.get(position);
 	}
-	
-	public boolean isTaboo(String checkTabooWord) {
+
+	public boolean firstWordIsTaboo(int position) {
 		for(String taboo : tabooWords) {
-			if(checkTabooWord.equals(taboo)) {
+			if(taboo.toLowerCase().equals(lines.get(position).split(" ")[0].toLowerCase())) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public void firstCharUpperCase(int position) {
+		String temp = lines.get(position);
+		String firstChar = temp.substring(0, 1).toUpperCase();
+		lines.set(position, firstChar + temp.substring(1));
+	}
+
+	public void sortArray() {
+		Collections.sort(lines);
 	}
 }
