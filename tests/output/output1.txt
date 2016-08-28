@@ -1,0 +1,3 @@
+Enter word(s) to ignore as keyword. Enter -1 to skip / end:
+Enter the line(s) that you which to be circularly shifted.
+Alternatively, enter -1 to end your input:
