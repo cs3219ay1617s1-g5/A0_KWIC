@@ -1,9 +1,22 @@
 package filters;
 
 import java.io.EOFException;
+import java.util.ArrayList;
 
 public class Remover extends Filter {
-	public static final String[] ignoredWords = { "is", "the", "of", "and", "as", "a", "after" };
+	private ArrayList<String> ignoredWords;
+	
+	public Remover() {
+		ignoredWords = new ArrayList<String>();
+	}
+	
+	/**
+	 * Add a word to ignore as keyword into the ignoredWords list.
+	 * @param word the word to ignore as keyword.
+	 */
+	public void addIgnoredWord(String word) {
+		ignoredWords.add(word);
+	}
 
 	@Override
 	public void execute() {
