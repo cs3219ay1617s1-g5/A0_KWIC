@@ -29,12 +29,14 @@ public class Pipe {
 	 * @return a string if there's something in the buffer, otherwise
 	 */
 	public String read() throws EOFException {
+		// Keeps reading until the pipe is closed and buffer is empty.
 		while (true) {
 			if (buffer.isEmpty()) {
 				if (isClosed) {
 					throw new EOFException();
 				}
 
+				// Nothing in pipe buffer and pipe is not closed.
 				try {
 					Thread.sleep(5);
 				} catch (InterruptedException e) {

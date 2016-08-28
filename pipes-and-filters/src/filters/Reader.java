@@ -15,6 +15,7 @@ public class Reader extends Filter {
 	public void execute() {
 		System.out.println(INSTRUCTION_MESSAGE);
 		
+		// Read while there's still things to read.
 		while (sc.hasNextLine()) {
 			String input = sc.nextLine();
 			
@@ -22,9 +23,11 @@ public class Reader extends Filter {
 				break;
 			}
 			
+			// Write to its output pipe.
 			write(input);
 		}
 		
+		// Job done, close its output pipe.
 		outputPipe.close();
 	}
 }

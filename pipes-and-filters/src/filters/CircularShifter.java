@@ -7,18 +7,21 @@ public class CircularShifter extends Filter {
 
 	@Override
 	public void execute() {
+		// Read from input pipe while it is still open.
 		while (true) {
 			try {
 				String input = read();
 				String[] shiftedInputs = shift(input);
+				
 				write(shiftedInputs);
 			} catch (EOFException e) {
-				outputPipe.close();
-				System.out.println("This is CircularShifter end");
-				
+				// Input pipe is closed.
 				break;
 			}
 		}
+		
+		// Job done, close its output pipe.
+		outputPipe.close();
 	}
 	
 	/**
@@ -30,6 +33,7 @@ public class CircularShifter extends Filter {
 		String[] words = input.split(" ");
 		String[] shiftedInputs = new String[words.length];
 		
+		// Loop through different words in a line to use as keyword.
 		for (int i = 0; i < words.length; i++) {
 			String shiftedInput = buildLine(words, i);
 			shiftedInputs[i] = shiftedInput;
@@ -47,6 +51,7 @@ public class CircularShifter extends Filter {
 	private String buildLine(String[] words, int startIndex) {
 		String shiftedInput = "";
 		
+		// Loop to form a line starting from the start index to start index - 1 (circular)
 		for (int i = 0; i < words.length; i++) {
 			int index = (startIndex + i) % words.length;
 			
