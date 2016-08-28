@@ -1,12 +1,16 @@
 import java.util.*;
 
 public class CircularShift {
+	
 	private LinkedList<String> tempString;
 	
 	public CircularShift() {
 		tempString = new LinkedList<String>();
 	}
 	
+	/*
+	* Rotates each line and adds them to list of words 
+	*/
 	public void rotate(LineStorage lines) {
 		int oriListLength = lines.getLength();
 		
@@ -20,6 +24,9 @@ public class CircularShift {
 		}
 	}
 	
+	/*
+	* Converts LinkedList to String
+	*/
 	public String arrToString(LinkedList<String> temp) {
 		StringBuilder sb = new StringBuilder();
 		for (String s : temp)
