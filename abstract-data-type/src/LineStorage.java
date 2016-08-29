@@ -30,6 +30,10 @@ public class LineStorage {
 		return lines.get(position);
 	}
 
+	public ArrayList<String> getLines() {
+		return lines;
+	}
+
 	/*
 	* Checks if first word of the String is in 'words to ignore' list 
 	*/
